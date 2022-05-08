@@ -4,7 +4,7 @@
 # Import para criacao do servidor
 from platform import architecture
 from xmlrpc.server import SimpleXMLRPCServer
-import os.path
+
 # from click import argument
 from tuplas import Tuple_Space
 # Verificar funcionalidade
@@ -64,6 +64,6 @@ class Server:
         
     
 if __name__ == '__main__':
-    PORT = 8053
+    PORT = 8054
     server = Server(PORT)
     

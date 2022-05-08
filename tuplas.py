@@ -2,7 +2,7 @@ import pickle
 import threading
 import os.path
 
-from sqlalchemy import false
+# from sqlalchemy import false
 
 class Tuple_Space:
     def __init__(self):
@@ -97,7 +97,7 @@ class Tuple_Space:
                 return False
         else:
             continua_verificacao = False
-            found = false
+            found = False
             for _, x in enumerate(self.tuplas):
                 for i in range(len(tupla)):
                     if i == 0:
@@ -113,6 +113,6 @@ class Tuple_Space:
                         else:
                             found = False
                             break
-            if found:
-                return x
+                if found:
+                    return x
         return False
