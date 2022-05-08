@@ -11,9 +11,38 @@ s = xmlrpc.client.ServerProxy('http://localhost:8054')
 #var = ('calculos', 10, 20,)
 #teste = s.write(var)
 #print(teste)
-var = ('calculos', 10, 20,)
-teste = s.read(var)
+temp = []
+for i in range (3):
+    temp.append(input("Digite um valor"))
+
+var = tuple(temp)
+
+# var = ("tela","mouse", "teclado",)
+teste = s.write(var)
 print(teste)
+
+temp = s.take(var)
+print(temp)
+
+convert = list(temp['tupla'])
+
+a = int(input("Deseja adicionar elemento?"))
+
+if a == 1:
+    convert.append(input("Digite um valor"))
+    var = tuple(convert)
+    teste = s.write(var)
+    print(teste)
+elif a == 2:
+    convert.remove(input("Digite um valor:"))
+    var = tuple(convert)
+    teste = s.write(var)
+    print(teste)
+
+
+
+# implementar atualização da tupla
+
 #test = s.take(var)
 #print(test)
 # print(var)

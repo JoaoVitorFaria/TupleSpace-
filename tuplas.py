@@ -79,8 +79,14 @@ class Tuple_Space:
                 "msg": "Tupla em uso ou não existe."
             }
         
-    def calculo(self, tupla):
-        pass
+    def Calculo(self, tupla):
+        if self.Verifica_Tupla(tupla):  
+            temp = list(tupla)
+            result =[]
+            result.append(temp[1]*temp[2])
+            pass
+        else:
+            pass
 
     def Verifica_Tupla(self, tupla):
         if type(tupla) != tuple:

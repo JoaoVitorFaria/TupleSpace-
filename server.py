@@ -36,8 +36,8 @@ class Server:
                     self.minha_tupla = Tuple_Space()
 
                 def calculo(self, argument):
-                    # retorna a invocacao do metodo calculo
-                    pass
+                    temp = tuple(argument)
+                    return self.minha_tupla.Calculo(temp)
 
                 def read(self, argument):
                     temp = tuple(argument)
