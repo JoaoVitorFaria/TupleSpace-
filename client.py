@@ -1,4 +1,3 @@
-
 # Import para criacao de uma cliente
 import xmlrpc.client
 
@@ -9,13 +8,14 @@ s = xmlrpc.client.ServerProxy('http://localhost:8054')
 #usando s.pow é possivel invocar os metodos do servidor
 # var = []
 # var = s.calculo(10,8)
-var = ('joao', 'wesley', 'daniel',)
-teste = s.write(var)
-print(teste)
+#var = ('calculos', 10, 20,)
+#teste = s.write(var)
+#print(teste)
+var = ('calculos', 10, 20,)
 teste = s.read(var)
 print(teste)
-test = s.take(var)
-print(test)
+#test = s.take(var)
+#print(test)
 # print(var)
 # eh possivel listar todos os metodos disponiveis no servidor
 # isso pode ser utilizado para criar um dicionario de servicos

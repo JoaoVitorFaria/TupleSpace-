@@ -20,11 +20,11 @@ class Tuple_Space:
             minha_tupla = self.Get_Tupla(tupla)
             if minha_tupla == False:
                 return {
-                    "msg": "Tupla " + str("("+str(tupla[0])+", ...)") + "\nnão encontrada.",
+                    "msg": "Tupla " + str("("+str(tupla[0])+", ...)") + " não encontrada.",
                 }
             return {
                 "tupla": minha_tupla,
-                "msg": "Tupla " + str(minha_tupla) + "\nlida com sucesso.",
+                "msg": "Tupla " + str(minha_tupla) + " lida com sucesso.",
             }
         else:
             return{
@@ -40,11 +40,11 @@ class Tuple_Space:
                     pickle.dump(self.tuplas, f)
                 return{
                     "tupla": tupla,
-                    "msg": "Tupla " + str(tupla) + "\nescrita com sucesso!",
+                    "msg": "Tupla " + str(tupla) + " escrita com sucesso!",
                 } 
             else:
                 return{
-                    "msg": "Tupla " + str("("+str(tupla[0])+", ...)") + "\njá existe, você precisa obtê-la utilizando o método take para atualizá-la."
+                    "msg": "Tupla " + str("("+str(tupla[0])+", ...)") + " já existe, você precisa obtê-la utilizando o método take para atualizá-la."
                 }
         else:
             return{
@@ -58,7 +58,7 @@ class Tuple_Space:
             if minha_tupla == False:
                 self.lock.release()
                 return{
-                    "msg": "Tupla " + str(tupla) + "\nnão pode ser obtida."
+                    "msg": "Tupla " + str(tupla) + " não pode ser obtida."
                 }
 
             try:
@@ -71,7 +71,7 @@ class Tuple_Space:
             self.lock.release()
             return{
                 "tupla": minha_tupla,
-                "msg": "Tupla " + str(minha_tupla) + "\nobtida com sucesso."
+                "msg": "Tupla " + str(minha_tupla) + " obtida com sucesso."
             }
         else:
             self.lock.release()
@@ -97,7 +97,6 @@ class Tuple_Space:
                 return False
         else:
             continua_verificacao = False
-            found = False
             for _, x in enumerate(self.tuplas):
                 for i in range(len(tupla)):
                     if i == 0:
@@ -107,12 +106,11 @@ class Tuple_Space:
                         else:
                             break
                     else:
-                        if type(tupla[i]) == type(x[i]) and continua_verificacao:
-                            found = True
+                        if type(tupla[i]) == type(x[i]) and continua_verificacao and tupla[i] == x[i]:
                             continue
                         else:
-                            found = False
+                            continua_verificacao = False
                             break
-                if found:
+                if i == (len(tupla) - 1) and continua_verificacao:
                     return x
         return False

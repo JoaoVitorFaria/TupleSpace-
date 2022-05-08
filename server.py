@@ -1,4 +1,3 @@
-
 #https://docs.python.org/pt-br/3/library/xmlrpc.server.html
 
 # Import para criacao do servidor
