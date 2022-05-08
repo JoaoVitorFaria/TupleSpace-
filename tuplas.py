@@ -2,6 +2,8 @@ import pickle
 import threading
 import os.path
 
+from sqlalchemy import false
+
 class Tuple_Space:
     def __init__(self):
         self.lock = threading.Lock()
@@ -95,6 +97,7 @@ class Tuple_Space:
                 return False
         else:
             continua_verificacao = False
+            found = false
             for _, x in enumerate(self.tuplas):
                 for i in range(len(tupla)):
                     if i == 0:
@@ -105,7 +108,11 @@ class Tuple_Space:
                             break
                     else:
                         if type(tupla[i]) == type(x[i]) and continua_verificacao:
-                            return x
+                            found = True
+                            continue
                         else:
+                            found = False
                             break
+            if found:
+                return x
         return False
