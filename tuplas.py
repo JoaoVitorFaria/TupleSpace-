@@ -1,9 +1,17 @@
+import pickle
 import threading
+import os.path
 
 class Tuple_Space:
     def __init__(self):
         self.lock = threading.Lock()
-        self.tuplas = []
+        # self.tuplas = []
+        if not os.path.isfile("tupla.pickle"):
+            self.tuplas = []
+        else:
+            with open("tupla.pickle", "rb") as f:
+                self.tuplas = pickle.load(f)
+        
 
     def Read(self, tupla):
         if self.Verifica_Tupla(tupla):  
@@ -26,6 +34,8 @@ class Tuple_Space:
             minnha_tupla = self.Get_Tupla(tupla)
             if minnha_tupla == False:
                 self.tuplas.append(tupla)
+                with open("tupla.pickle","wb") as f:
+                    pickle.dump(self.tuplas, f)
                 return{
                     "tupla": tupla,
                     "msg": "Tupla " + str(tupla) + "\nescrita com sucesso!",

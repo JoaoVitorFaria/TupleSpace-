@@ -2,8 +2,11 @@
 #https://docs.python.org/pt-br/3/library/xmlrpc.server.html
 
 # Import para criacao do servidor
+from platform import architecture
 from xmlrpc.server import SimpleXMLRPCServer
-
+import os.path
+# from click import argument
+from tuplas import Tuple_Space
 # Verificar funcionalidade
 # from xmlrpc.server import SimpleXMLRPCRequestHandler
 
@@ -30,21 +33,27 @@ class Server:
             # Register an instance; all the methods of the instance are
             # published as XML-RPC methods (in this case, just 'mul').
             class tuple_operations:
+                def __init__(self):
+                    self.minha_tupla = Tuple_Space()
+
                 def calculo(self, argument):
                     # retorna a invocacao do metodo calculo
                     pass
 
                 def read(self, argument):
-                    # retorna a invocacao do metodo read
-                    pass
+                    temp = tuple(argument)
+                    return self.minha_tupla.Read(temp)
 
                 def take(self, argument):
                     # retorna a invocacao do metodo take
-                    pass
+                    temp = tuple(argument)
+                    return self.minha_tupla.Take(temp)
                 
                 def write(self, content):
                     # retorna a invocacao do metodo write
-                    pass
+                    temp = tuple(content)
+                    return self.minha_tupla.Write(temp)
+
             
             # instaciacao de um objeto da classe tuple_operations
             # que lista os metodos que nao foram listados com register_function()
