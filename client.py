@@ -21,7 +21,7 @@ var = tuple(temp)
 teste = s.write(var)
 print(teste)
 
-temp = s.take(var)
+temp = s.read(var)
 print(temp)
 
 convert = list(temp['tupla'])

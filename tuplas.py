@@ -22,6 +22,7 @@ class Tuple_Space:
                 return {
                     "msg": "Tupla " + str("("+str(tupla[0])+", ...)") + " não encontrada.",
                 }
+            self.Calculo(minha_tupla)
             return {
                 "tupla": minha_tupla,
                 "msg": "Tupla " + str(minha_tupla) + " lida com sucesso.",
@@ -82,11 +83,17 @@ class Tuple_Space:
     def Calculo(self, tupla):
         if self.Verifica_Tupla(tupla):  
             temp = list(tupla)
+            mult = float(temp[1]*temp[2])
             result =[]
-            result.append(temp[1]*temp[2])
-            pass
+            result.append(mult)
+            return {
+                "tupla": tupla,
+                "msg": "A multiplicação dos valores da tupla é: " + str(result[-1]),
+            }
         else:
-            pass
+            return{
+                "msg": "Tupla inexistente."
+            }
 
     def Verifica_Tupla(self, tupla):
         if type(tupla) != tuple:
