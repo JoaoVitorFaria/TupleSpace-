@@ -22,7 +22,7 @@ class Tuple_Space:
                 return {
                     "msg": "Tupla " + str("("+str(tupla[0])+", ...)") + " não encontrada.",
                 }
-            self.Calculo(minha_tupla)
+            
             return {
                 "tupla": minha_tupla,
                 "msg": "Tupla " + str(minha_tupla) + " lida com sucesso.",
@@ -34,8 +34,8 @@ class Tuple_Space:
 
     def Write(self, tupla):
         if self.Verifica_Tupla(tupla):
-            minnha_tupla = self.Get_Tupla(tupla)
-            if minnha_tupla == False:
+            minha_tupla = self.Get_Tupla(tupla)
+            if minha_tupla == False:
                 self.tuplas.append(tupla)
                 with open("tupla.pickle","wb") as f:
                     pickle.dump(self.tuplas, f)
@@ -83,12 +83,11 @@ class Tuple_Space:
     def Calculo(self, tupla):
         if self.Verifica_Tupla(tupla):  
             temp = list(tupla)
-            mult = float(temp[1]*temp[2])
-            result =[]
-            result.append(mult)
+            num1 = int(temp[0])
+            num2 = int(temp[1])
             return {
                 "tupla": tupla,
-                "msg": "A multiplicação dos valores da tupla é: " + str(result[-1]),
+                "msg": "A multiplicação dos valores da tupla é: " + str(num1*num2),
             }
         else:
             return{

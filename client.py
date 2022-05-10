@@ -12,7 +12,7 @@ s = xmlrpc.client.ServerProxy('http://localhost:8054')
 #teste = s.write(var)
 #print(teste)
 temp = []
-for i in range (3):
+for i in range (2):
     temp.append(input("Digite um valor"))
 
 var = tuple(temp)
