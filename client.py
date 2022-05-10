@@ -19,29 +19,6 @@ temp = (17.6, 14.0, 3.84)
 var = tuple(temp)
 
 # var = ("tela","mouse", "teclado",)
-teste = s.read()
-pprint.pprint(teste)
-
-#temp = s.read(var)
-#print(temp)
-
-#convert = list(temp['tupla'])
-
-#a = int(input("Deseja adicionar elemento?"))
-
-#if a == 1:
- #   convert.append(input("Digite um valor"))
-   # var = tuple(convert)
-  #  teste = s.write(var)
-  #  print(teste)
-#elif a == 2:
-  #  convert.remove(input("Digite um valor:"))
-   # var = tuple(convert)
-    #teste = s.write(var)
-    #print(teste)
-
-
-
 # implementar atualização da tupla
 
 #test = s.take(var)

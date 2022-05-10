@@ -71,12 +71,10 @@ class Tuple_Space:
         
     def Calculo(self, tupla):
         if self.Verifica_Tupla(tupla):  
-            temp = list(tupla)
-            num1 = int(temp[0])
-            num2 = int(temp[1])
+            (num1, num2) = tupla
             return {
                 "tupla": tupla,
-                "msg": "A multiplicação dos valores da tupla é: " + str(num1*num2),
+                "msg": "A multiplicação dos valores da tupla é: " + str(float(num1)*float(num2)),
             }
         else:
             return{
@@ -127,69 +125,3 @@ class Tuple_Space:
                             # do continua_verifição para falso
                             continua_verificacao = False
                             break
-        # Caso a tupla desejada não seja encotrada nós retornamos o valor falso
-        return False
-
-    # A função Read_All retorna todas as tuplas presentes no espaço de tupla para o usuário consultar
-    def Read_All(self):
-        return {
-                    "tuplas": self.tuplas,
-                    "msg": "Todas as tuplas foram exibidas com sucesso."
-                }
-
-    def Calc_Teste(self, tupla):
-        if self.Verifica_Tupla(tupla) and len(tupla) > 1:  
-            minha_tupla = self.Get_Tupla(tupla)
-            if minha_tupla == False:
-                temp = list(tupla)
-                resultado = []
-                soma = 0
-                diferenca = 0
-                produto = 1
-                razao = 0
-                resultado.append("resultados")
-                for i in range(len(temp)):
-                    soma += float(temp[i])
-                    produto = produto * float(temp[i])
-                resultado.append(soma)
-                resultado.append(produto)
-                if len(temp) == 2:
-                    razao = float(temp[0]) / float(temp[1])
-                    diferenca = float(temp[0]) - float(temp[1])
-                    resultado.append(razao)
-                    resultado.append(diferenca)
-                    self.tuplas.append(tuple(resultado))
-                    return {
-                        "msg": "Resultados",
-                        "soma": "{:.2f}".format(soma),
-                        "diferença": "{:.2f}".format(diferenca),
-                        "produto": "{:.2f}".format(produto),
-                        "razão": "{:.2f}".format(razao),
-                        "razão": "{:.2f}".format(razao),
-                    }
-                else:
-                    self.tuplas.append(tuple(resultado))
-                    return {
-                        "msg": "Resultados",
-                        "soma": "{:.2f}".format(soma),
-                        "produto": "{:.2f}".format(produto),
-                    }
-            else:
-                if len(minha_tupla) == 3:
-                    return {
-                        "msg": "Resultados",
-                        "soma": "{:.2f}".format(minha_tupla[1]),
-                        "produto": "{:.2f}".format(minha_tupla[2]),
-                    }
-                else:
-                    return {
-                        "msg": "Resultados",
-                        "soma": "{:.2f}".format(minha_tupla[1]),
-                        "diferença": "{:.2f}".format(minha_tupla[2]),
-                        "produto": "{:.2f}".format(minha_tupla[3]),
-                        "razão": "{:.2f}".format(minha_tupla[4]),
-                    }
-        else:
-            return{
-                "msg": "O objeto passado não é uma tupla."
-            }
