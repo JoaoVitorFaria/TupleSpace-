@@ -13,7 +13,6 @@ class Tuple_Space:
     # de sucesso utilizando um formato de dicionário
     def Read(self, tupla):
         if self.Verifica_Tupla(tupla):  
-            self.Calculo(tupla)
             minha_tupla = self.Get_Tupla(tupla)
             # Caso ela não esteja no espaço de tupla uma mensagem apropriada é retornada
             if minha_tupla == False:
