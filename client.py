@@ -56,6 +56,7 @@ while op != 0:
             
 
         temp = tuple(tupla)
+        print(temp)
         result = s.read(temp)
         print (result)
     elif op == 3:#take
@@ -64,11 +65,29 @@ while op != 0:
         search = 0
         while search != '-1':
             search = input()
-            tupla.append(search)
+            if search == '-1':continue
+            else:
+                tupla.append(search)
 
         temp = tuple(tupla)
-        result = s.read(temp)
+        result = s.take(temp)
         print (result)
+        tupla  = result['tupla']
+        print("Digite 1 para inserir um elemento na tupla, 2 para remover e -1 para finalizacar a operacao")
+        search = 0
+        while search != '-1':
+            search = input()
+            if search == '-1':continue
+            elif search == '1':
+                new = input("-")
+                tupla.append(new)
+            elif search == '2':
+                new = input("-")
+                tupla.remove(new)
+        
+        final = tuple(tupla)
+        result = s.write(final)
+        print(result)
     elif op == 4:#calculo
         var01 = float(input("Digite o primeiro valor:\n-"))
         var02 = float(input("\nDigite o segundo valor:\n-"))
