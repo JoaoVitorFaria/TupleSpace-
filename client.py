@@ -4,7 +4,7 @@ import pprint
 
 
 # # instanciacao da comunicacao com o servidor
-s = xmlrpc.client.ServerProxy('http://localhost:8056')
+s = xmlrpc.client.ServerProxy('http://localhost:8057')
 
 #usando s.pow é possivel invocar os metodos do servidor
 # var = []
@@ -37,15 +37,38 @@ while op != 0:
         insert = 0
         while insert != '-1':
             insert = input()
-            tupla.append(insert)
+            if insert == '-1':continue
+            else:
+                tupla.append(insert)
 
         temp = tuple(tupla)
         result = s.write(temp)
         print (result)
     elif op == 2:#read
-        pass
+        print("Insira os elementos da tupla que deseja pesquisar(Insira -1 para indicar o fim da tupla)")
+        tupla =[]
+        search = 0
+        while search != '-1':
+            search = input()
+            if search == '-1':continue
+            else:
+                tupla.append(search)
+            
+
+        temp = tuple(tupla)
+        result = s.read(temp)
+        print (result)
     elif op == 3:#take
-        pass
+        print("Insira os elementos da tupla que deseja atualizar(Insira -1 para indicar o fim da tupla)")
+        tupla =[]
+        search = 0
+        while search != '-1':
+            search = input()
+            tupla.append(search)
+
+        temp = tuple(tupla)
+        result = s.read(temp)
+        print (result)
     elif op == 4:#calculo
         var01 = float(input("Digite o primeiro valor:\n-"))
         var02 = float(input("\nDigite o segundo valor:\n-"))

@@ -65,6 +65,6 @@ class Server:
         
     
 if __name__ == '__main__':
-    PORT = 8056
+    PORT = 8057
     server = Server(PORT)
     
