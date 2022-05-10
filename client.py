@@ -1,5 +1,6 @@
 # Import para criacao de uma cliente
 import xmlrpc.client
+import pprint
 
 
 # # instanciacao da comunicacao com o servidor
@@ -11,33 +12,33 @@ s = xmlrpc.client.ServerProxy('http://localhost:8054')
 #var = ('calculos', 10, 20,)
 #teste = s.write(var)
 #print(teste)
-temp = []
-for i in range (2):
-    temp.append(input("Digite um valor"))
-
+#temp = []
+#for i in range (3):
+ #   temp.append(input("Digite um valor"))
+temp = (17.6, 14.0, 3.84)
 var = tuple(temp)
 
 # var = ("tela","mouse", "teclado",)
-teste = s.write(var)
-print(teste)
+teste = s.read()
+pprint.pprint(teste)
 
-temp = s.read(var)
-print(temp)
+#temp = s.read(var)
+#print(temp)
 
-convert = list(temp['tupla'])
+#convert = list(temp['tupla'])
 
-a = int(input("Deseja adicionar elemento?"))
+#a = int(input("Deseja adicionar elemento?"))
 
-if a == 1:
-    convert.append(input("Digite um valor"))
-    var = tuple(convert)
-    teste = s.write(var)
-    print(teste)
-elif a == 2:
-    convert.remove(input("Digite um valor:"))
-    var = tuple(convert)
-    teste = s.write(var)
-    print(teste)
+#if a == 1:
+ #   convert.append(input("Digite um valor"))
+   # var = tuple(convert)
+  #  teste = s.write(var)
+  #  print(teste)
+#elif a == 2:
+  #  convert.remove(input("Digite um valor:"))
+   # var = tuple(convert)
+    #teste = s.write(var)
+    #print(teste)
 
 
 
