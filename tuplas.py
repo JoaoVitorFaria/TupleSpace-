@@ -82,12 +82,10 @@ class Tuple_Space:
         
     def Calculo(self, tupla):
         if self.Verifica_Tupla(tupla):  
-            temp = list(tupla)
-            num1 = int(temp[0])
-            num2 = int(temp[1])
+            (num1, num2) = tupla
             return {
                 "tupla": tupla,
-                "msg": "A multiplicação dos valores da tupla é: " + str(num1*num2),
+                "msg": "A multiplicação dos valores da tupla é: " + str(float(num1)*float(num2)),
             }
         else:
             return{
