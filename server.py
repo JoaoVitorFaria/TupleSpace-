@@ -53,6 +53,8 @@ class Server:
                     temp = tuple(content)
                     return self.minha_tupla.Write(temp)
 
+                def readAll(self):
+                    return self.minha_tupla.Read_All()
             
             # instaciacao de um objeto da classe tuple_operations
             # que lista os metodos que nao foram listados com register_function()
@@ -63,6 +65,6 @@ class Server:
         
     
 if __name__ == '__main__':
-    PORT = 8054
+    PORT = 8056
     server = Server(PORT)
     
