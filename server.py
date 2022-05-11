@@ -55,6 +55,10 @@ class Server:
 
                 def readAll(self):
                     return self.minha_tupla.Read_All()
+                
+                def consulta_prefixo(self, content):
+                    temp = tuple(content)
+                    return self.minha_tupla.Consulta_Prefixo(temp)
             
             # instaciacao de um objeto da classe tuple_operations
             # que lista os metodos que nao foram listados com register_function()
