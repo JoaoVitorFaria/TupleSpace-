@@ -10,7 +10,7 @@ while op != 0:
     try:
         op = int(input("\nEscolha a operacao que deseja realizar:\n(1) Escrever uma tupla\n(2) Ler uma tupla\n(3) Atualizar uma tupla\n(4) Realizar calculo\n(5) Ler todas as tuplas\n(6) Consultar por prefixo\n(0) Sair\nSua opção-> "))
     except:
-        print("Entrada inválida! Por favor digite uma das opções apresentadas")
+        print("Entrada inválida! Por favor selecione uma das opções apresentadas")
         continue
 
     if op == 1: #write
@@ -72,15 +72,17 @@ while op != 0:
                     print(f"{chave}: {valor}")
             else:
                 tupla  = result['tupla']
-                print("\nDigite 1 para inserir um elemento na tupla, 2 para remover e -1 para finalizacar a operacao")
-                search = 0
-                while search != '-1':
-                    search = input()
-                    if search == '-1':continue
-                    elif search == '1':
+                while search != -1:
+                    try:
+                        search = int(input("\nDigite 1 para inserir um elemento na tupla, 2 para remover e -1 para finalizacar a operacao\n"))
+                    except:
+                        print("Entrada inválida! Por favor digite uma das opções apresentadas.")
+                        continue
+                    if search == -1:continue
+                    elif search == 1:
                         new = input("-> ")
                         tupla.append(new)
-                    elif search == '2':
+                    elif search == 2:
                         new = input("-> ")
                         try:
                             tupla.remove(new)
@@ -113,7 +115,7 @@ while op != 0:
         print()
         for chave, valor in result.items():
             print(f"{chave}: {valor}")
-            
+
     elif op == 5:#ver todas
         temp = s.readAll()
         print()
@@ -138,7 +140,7 @@ while op != 0:
         tupla = []
         insert = input()
         tupla.append(insert)
-        temp = s.teste(tuple(tupla))
+        temp = s.consulta_prefixo(tuple(tupla))
         print()
         if len(temp) == 1:
             for chave, valor in temp.items():
